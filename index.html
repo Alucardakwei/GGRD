@@ -181,11 +181,17 @@
         .social-links a:hover { background: var(--green-mid); transform: translateY(-5px); }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #bdc3c7; font-weight: 600; }
 
+        /* Mobile Menu */
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1002; }
+        .hamburger span { width: 30px; height: 3px; background: var(--green-dark); transition: 0.3s; }
+
         @media (max-width: 768px) {
-            nav { padding: 10px 20px; flex-direction: column; gap: 15px; padding-bottom: 15px;}
-            .nav-links { display: none; } /* Simplified for mobile */
-            .logo img { height: 80px; }
-            .hero { padding: 40px 20px; margin-top: 130px; text-align: center; }
+            nav { padding: 10px 20px; }
+            .hamburger { display: flex; }
+            .nav-links { position: fixed; top: 0; left: -100%; width: 70%; height: 100vh; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); flex-direction: column; align-items: center; justify-content: center; gap: 30px; box-shadow: 5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; z-index: 1001; }
+            .nav-links.active { left: 0; }
+            .logo img { height: 70px; }
+            .hero { padding: 40px 20px; margin-top: 160px; text-align: center; }
             .hero-text h1 { font-size: 4rem; }
             .hero-text h1 span { font-size: 4.5rem; }
             .hero-img { margin-top: 0px; }
@@ -205,10 +211,13 @@
         <div class="logo">
             <img src="logo.jpg" alt="GGRD Food Services Logo">
         </div>
-        <div class="nav-links">
-            <a href="#about">Why Us</a>
-            <a href="#menu">Our Menu</a>
-            <a href="#location">Find Us</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#about" onclick="toggleMenu()">Why Us</a>
+            <a href="#menu" onclick="toggleMenu()">Our Menu</a>
+            <a href="#location" onclick="toggleMenu()">Find Us</a>
         </div>
         <div class="cart-icon" onclick="toggleCart()">
             🛒 <span class="cart-count" id="cart-count">0</span>
@@ -226,10 +235,10 @@
         </div>
     </div>
 
-    <!-- Decorative Leaves -->
-    <img src="leaf.png" style="position: absolute; top: 15%; left: 5%; width: 150px; opacity: 0.7; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); animation: float 8s ease-in-out infinite; z-index: 1;">
-    <img src="leaf.png" style="position: absolute; top: 40%; right: 5%; width: 180px; opacity: 0.5; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); transform: scaleX(-1); animation: float 10s ease-in-out infinite 1s; z-index: 1;">
-    <img src="leaf.png" style="position: absolute; bottom: 20%; left: 10%; width: 120px; opacity: 0.6; filter: blur(2px); animation: float 7s ease-in-out infinite 2s; z-index: 1;">
+    <!-- Decorative Floating Food -->
+    <img src="doughnut.png" style="position: absolute; top: 15%; left: 5%; width: 150px; opacity: 0.4; mix-blend-mode: multiply; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); animation: float 8s ease-in-out infinite; z-index: 1;">
+    <img src="sausage_roll.png" style="position: absolute; top: 40%; right: 5%; width: 180px; opacity: 0.3; mix-blend-mode: multiply; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); transform: scaleX(-1); animation: float 10s ease-in-out infinite 1s; z-index: 1;">
+    <img src="meat_pie.png" style="position: absolute; bottom: 20%; left: 10%; width: 140px; opacity: 0.4; mix-blend-mode: multiply; filter: blur(2px); animation: float 7s ease-in-out infinite 2s; z-index: 1;">
 
     <!-- Why Choose Us Section -->
     <div class="features-section" id="about">
@@ -372,18 +381,18 @@
 
     <script>
         const products = [
-            { id: 1, name: "Meat pie", icon: "🥟" },
-            { id: 2, name: "Sausage Rolls", icon: "🥐" },
-            { id: 3, name: "Doughnut", icon: "🍩" },
-            { id: 4, name: "Frozen Spring Rolls", icon: "🌯" },
+            { id: 1, name: "Meat pie", icon: "<img src='meat_pie.png' style='height: 80px; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 2, name: "Sausage Rolls", icon: "<img src='sausage_roll.png' style='height: 80px; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 3, name: "Doughnut", icon: "<img src='doughnut.png' style='height: 80px; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 4, name: "Frozen Spring Rolls", icon: "<img src='spring_rolls.png' style='height: 80px; mix-blend-mode: multiply; pointer-events: none;'>" },
             { id: 5, name: "Frozen Samosas", icon: "🥟" },
             { id: 6, name: "Chocolate Cake", icon: "🍫" },
             { id: 7, name: "Red velvet Cake", icon: "🍰" },
             { id: 8, name: "Vanilla Cake", icon: "🎂" },
-            { id: 9, name: "Flour Chips", icon: "<img src='plantain.png' style='height: 80px; filter: hue-rotate(40deg); pointer-events: none;'>" },
+            { id: 9, name: "Flour Chips", icon: "<img src='plantain.png' style='height: 80px; mix-blend-mode: multiply; filter: hue-rotate(40deg); pointer-events: none;'>" },
             { id: 10, name: "Atchomor (chinchin)", icon: "🥨" },
-            { id: 11, name: "Plantain Chips", icon: "<img src='plantain.png' style='height: 80px; pointer-events: none;'>" },
-            { id: 12, name: "Cocoyam Chips", icon: "<img src='plantain.png' style='height: 80px; filter: hue-rotate(-20deg) brightness(0.8); pointer-events: none;'>" },
+            { id: 11, name: "Plantain Chips", icon: "<img src='plantain.png' style='height: 80px; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 12, name: "Cocoyam Chips", icon: "<img src='plantain.png' style='height: 80px; mix-blend-mode: multiply; filter: hue-rotate(-20deg) brightness(0.8); pointer-events: none;'>" },
             { id: 13, name: "Baked Chips", icon: "🥔" },
             { id: 14, name: "Shito", icon: "🌶️" },
             { id: 15, name: "Cookies", icon: "🍪" }
@@ -440,7 +449,7 @@
             
             const keys = Object.keys(cart);
             if (keys.length === 0) {
-                itemsContainer.innerHTML = '<p style="text-align: center; color: #777; margin-top: 40px; font-size: 1.1rem;">Your cart is empty. Let\\'s add some tasty treats!</p>';
+                itemsContainer.innerHTML = `<p style="text-align: center; color: #777; margin-top: 40px; font-size: 1.1rem;">Your cart is empty. Let's add some tasty treats!</p>`;
             } else {
                 keys.forEach(name => {
                     const qty = cart[name];
@@ -508,6 +517,10 @@
                 el.style.zIndex = 1;
             });
         });
+
+        function toggleMenu() {
+            document.getElementById('nav-links').classList.toggle('active');
+        }
     </script>
 </body>
 </html>
