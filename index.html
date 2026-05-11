@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GGRD Food Services | Quality Meals. Exceptional Service.</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;900&family=Dancing+Script:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;900&family=Dancing+Script:wght@700&family=Outfit:wght@400;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -200,19 +200,27 @@
         }
 
         .hero-text h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 5.5rem;
-            color: var(--green-dark);
-            line-height: 0.9;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--green-mid);
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: 0;
+            font-weight: 700;
         }
 
         .hero-text h1 span {
-            color: var(--yellow);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Outfit', sans-serif;
+            font-size: 6.5rem;
+            background: linear-gradient(135deg, var(--green-dark), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: block;
-            font-size: 6rem;
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -2px;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+            margin-top: 5px;
         }
 
         .hero-text p {
@@ -381,7 +389,7 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
@@ -390,7 +398,7 @@
         .product-card {
             background: white;
             border-radius: 20px;
-            padding: 40px 20px;
+            padding: 60px 40px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
             border: 1px solid transparent;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -437,7 +445,7 @@
         }
 
         .product-name {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 25px;
@@ -1081,22 +1089,22 @@
 
     <script>
         const products = [
-            { id: 1, name: "Meat pie", icon: "<img src='pie.jpg' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 2, name: "Sausage Rolls", icon: "<img src='sausage_roll.png' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 3, name: "Doughnut", icon: "<img src='doughnut.png' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 4, name: "Frozen Spring Rolls", icon: "<img src='frozen rolls.jpg' style='width: 200px; height: 160px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
-            { id: 5, name: "Frozen Samosa", icon: "<img src='Samosas.jpg' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 6, name: "Chocolate Cake", icon: "<img src='cocake.jpg' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 7, name: "Red velvet Cake", icon: "<img src='red velvet cake.jpg' style='width: 200px; height: 160px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
-            { id: 8, name: "Vanilla Cake", icon: "<img src='van.jpg' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 9, name: "Flour Chips", icon: "<img src='fchip.jpg' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply;  pointer-events: none;'>" },
-            { id: 10, name: "Atchomor (chinchin)", icon: "<img src='atchomor.jpg' style='width: 200px; height: 160px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
-            { id: 11, name: "Plantain Chips", icon: "<img src='plantain.png' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 12, name: "Cocoyam Chips", icon: "<img src='cocoyam.jpg' style='width: 200px; height: 160px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
-            { id: 13, name: "Baked Chips", icon: "<img src='baked chips.jpg' style='width: 200px; height: 160px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
-            { id: 14, name: "Shito", icon: "<img src='shito.jpg' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 15, name: "Cookies", icon: "<img src='cookie.jpg' style='width: 180px; height: 180px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
-            { id: 16, name: "Coated Groundnut", icon: "<img src='roasted.jpg' style='width: 200px; height: 160px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" }
+            { id: 1, name: "Meat pie", icon: "<img src='pie.jpg' style='width: 280px; height: 280px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 2, name: "Sausage Rolls", icon: "<img src='sausage_roll.png' style='width: 280px; height: 280px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 3, name: "Doughnut", icon: "<img src='doughnut.png' style='width: 350px; height: 330px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 4, name: "Frozen Spring Rolls", icon: "<img src='frozen rolls.jpg' style='width: 320px; height: 240px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
+            { id: 5, name: "Frozen Samosa", icon: "<img src='samosa.jpg' style='width: 350px; height: 330px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 6, name: "Chocolate Cake", icon: "<img src='cocake.jpg' style='width: 350px; height: 330px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 7, name: "Red velvet Cake", icon: "<img src='velvet.jpg' style='width: 320px; height: 320px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
+            { id: 8, name: "Vanilla Cake", icon: "<img src='van.jpg' style='width: 380px; height: 380px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 9, name: "Flour Chips", icon: "<img src='fchips.jpg' style='width: 350px; height: 330px; object-fit: contain; mix-blend-mode: multiply;  pointer-events: none;'>" },
+            { id: 10, name: "Atchomor (chinchin)", icon: "<img src='atchomor.jpg' style='width: 320px; height: 320px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
+            { id: 11, name: "Plantain Chips", icon: "<img src='chips.jpg' style='width: 280px; height: 280px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 12, name: "Cocoyam Chips", icon: "<img src='cocoyam.jpg' style='width: 320px; height: 380px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
+            { id: 13, name: "Baked Chips", icon: "<img src='baked chips.jpg' style='width: 320px; height: 240px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" },
+            { id: 14, name: "Shito", icon: "<img src='shito.jpg' style='width: 350px; height: 330px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 15, name: "Cookies", icon: "<img src='cookie.jpg' style='width: 280px; height: 280px; object-fit: contain; mix-blend-mode: multiply; pointer-events: none;'>" },
+            { id: 16, name: "Coated Groundnut", icon: "<img src='cnut.jpg' style='width: 320px; height: 240px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); pointer-events: none;'>" }
         ];
 
         let cart = {};
