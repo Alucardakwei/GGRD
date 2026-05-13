@@ -202,25 +202,38 @@
         .hero-text h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 3.5rem;
-            color: var(--green-mid);
+            color: var(--green-dark);
             line-height: 1;
             margin-bottom: 10px;
             letter-spacing: 0;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .hero-text h1 span {
             font-family: 'Outfit', sans-serif;
             font-size: 6.5rem;
-            background: linear-gradient(135deg, var(--green-dark), var(--yellow));
+            background: linear-gradient(to right, var(--green-dark) 0%, #ffffff 35%, var(--green-mid) 50%, #ffffff 75%, var(--green-dark) 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: block;
             font-weight: 900;
             line-height: 0.9;
             letter-spacing: -2px;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 4px 15px rgba(26, 107, 26, 0.2));
             margin-top: 5px;
+            animation: textShine 10s linear infinite;
+        }
+
+        @keyframes textShine {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
         .hero-text p {
